@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>EchoToast — Modern Toast JS</title>
+    <link rel="stylesheet" href="echotoast.min.css" />
+
+    <style>
+      /* ====== Demo Page Styling ====== */
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", system-ui, sans-serif;
+        background: linear-gradient(135deg, #f8fafc, #eef2ff);
+        color: #1e293b;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        padding: 60px 20px;
+      }
+
+      main.demo {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        border-radius: 18px;
+        padding: 40px 50px;
+        max-width: 620px;
+        width: 100%;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 28px;
+        margin-bottom: 8px;
+        color: #111827;
+      }
+
+      .muted {
+        color: #6b7280;
+        font-size: 15px;
+        margin-bottom: 32px;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+      }
+
+      button {
+        background: #f8fafc;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 10px;
+        padding: 12px 22px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        color: #111827;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      button:active {
+        transform: translateY(0);
+        box-shadow: none;
+      }
+
+      button:nth-child(1) {
+        background: linear-gradient(135deg, #22c55e, #10b981);
+        color: #fff;
+      }
+      button:nth-child(2) {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        color: #fff;
+      }
+      button:nth-child(3) {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: #fff;
+      }
+      button:nth-child(4) {
+        background: linear-gradient(135deg, #f59e0b, #f97316);
+        color: #fff;
+      }
+
+      .code {
+        text-align: left;
+        margin-top: 40px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #1e293b;
+        color: #e2e8f0;
+        font-family: "Fira Code", monospace;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+      }
+
+      .code h4 {
+        margin: 0;
+        padding: 12px 16px;
+        background: #0f172a;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        font-weight: 500;
+        font-size: 14px;
+        color: #f8fafc;
+      }
+
+      pre {
+        margin: 0;
+        padding: 16px;
+        overflow-x: auto;
+        font-size: 13px;
+      }
+
+      /* Toast container */
+      .echotoast-root {
+        z-index: 999999;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      class="echotoast-root"
+      id="echotoast-root"
+      aria-live="polite"
+      aria-atomic="false"
+    ></div>
+
+    <main class="demo">
+      <h2>EchoToast — Modern Toast JS</h2>
+      <p class="muted">
+        A sleek, dependency-free toast library with animated icons, smooth
+        transitions, and a clean aesthetic.
+      </p>
+
+      <div class="controls">
+        <button
+          onclick="EchoToast.show({type:'success',title:'Saved',message:'Your changes were saved successfully.'})"
+        >
+          ✅ Success
+        </button>
+        <button
+          onclick="EchoToast.show({type:'error',title:'Error',message:'There was an error saving your file.'})"
+        >
+          ❌ Error
+        </button>
+        <button
+          onclick="EchoToast.show({type:'info',title:'Uploading',message:'Upload in progress...',duration:10000,icon:'spinner'})"
+        >
+          ℹ️ Info (Spinner)
+        </button>
+        <button
+          onclick="EchoToast.show({type:'warning',title:'Attention',message:'Check required fields before submitting.'})"
+        >
+          ⚠️ Warning
+        </button>
+      </div>
+
+      <div class="code">
+        <h4>Example usage</h4>
+        <pre><code>EchoToast.show({
+  type: 'success',
+  title: 'Saved',
+  message: 'Your changes were saved successfully.',
+  duration: 4000
+})</code></pre>
+      </div>
+    </main>
+
+    <script src="echotoast.min.js"></script>
+  </body>
+</html>
